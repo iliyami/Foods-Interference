@@ -170,6 +170,7 @@ namespace Foods_Interference
                 if (V.Food == food)
                 {
                     Sum = CalculatePrices(V.Ingredients, HashTable);
+                    Break;
                 }
             }
 
