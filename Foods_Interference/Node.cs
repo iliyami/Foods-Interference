@@ -10,7 +10,8 @@ namespace Foods_Interference
     class Node
     {
         public string Food { get; set; }
+        public int number = -1;
         public List<string> Ingredients = new List<string>();
-
+        public List<string> Adjacents = new List<string>();
     }
 }
