@@ -40,6 +40,19 @@ namespace Foods_Interference
             return true;
         }
 
+        public int FindIndex(List<Node> V, string Food)
+        {
+            foreach (Node item in V)
+            {
+                if (item.Food == Food)
+                {
+                    return item.number;
+                }
+            }
+            Console.WriteLine("Error1 - No Vertex with given input found!");
+            return -1;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             if (CheckFiles() == false)
@@ -49,19 +62,30 @@ namespace Foods_Interference
             else
             {
                 /*Handling Food-Ingredients File*/
-                StreamReader ReadFoods = new StreamReader("E:\\foods.txt");
+                List<Node> V = new List<Node>();
+                StreamReader FI_File = new StreamReader("E:\\foods.txt");
                 string Line;
                 int counter = 0;
-                while (ReadFoods.Peek() >= 0)
+                while (FI_File.Peek() >= 0)
                 {
-                    Line = ReadFoods.ReadLine().ToString();
-                    string word = "";
+                    Line = FI_File.ReadLine().ToString();
+                    string[] strArray;
+                    strArray = Line.split(',');
                     Node newNode = new Node();
-                    foreach (char character in Line)
+                    newNode.Food = strArray[0];
+                    foreach (string item in strArray)
                     {
-                        if (character != ',')
+                        newNode.Ingredients = item;
+                    }
+                    for (int i = 0; i < Line.Lenght(); i++)
+                    {
+                        if (Line[i] != ',')
                         {
-                            word += character;
+                            word += Line[i];
+                            if (i+1 == Line.Lenght())
+                            {
+                                newNode.Ingredients.Add(word);
+                            }
                         }
                         else
                         {
@@ -78,13 +102,54 @@ namespace Foods_Interference
                             counter++;
                         }
                     }
-
-                    /*Handling Food-Interference File*/
-                    StreamReader FI_File = new StreamReader("E:\\foods.txt");
-
-
+                    V.add(newNode);
                 }
-                ReadFoods.Close();
+                FI_File.Close();
+
+                /*Handling Food-Interference File*/
+                List<List<string>> Adjacents = new List<List<string>>();
+                StreamReader FFE_File = new StreamReader("yechizi");
+                string Line;
+                while (FFE_File.Peek() >= 0)
+                {
+                    Line = FFE_File.ReadLine().ToString();
+                    string word = "";
+                    int i = -1, j = -1;
+                    for (int i = 0; i < Line.Lenght(); i++)
+                    {
+                        if (Line[i] != ',')
+                        {
+                            word += Line[i];
+                            if (i+1 == Line.Lenght())
+                            {
+                                if (i == -1 || j == -1)
+                                {
+                                    Console.WriteLine("Error From Index i j");
+                                    Close();
+                                }
+                                Adjacents[i][j] = word;
+                                Adjacents[j][i] = word;
+                            }
+                        }
+                        else
+                        {
+                            if (word[0] == 'F')
+                            {
+                                if (i == -1)
+                                {
+                                    i = FindIndex(V, word);
+                                }
+                                else
+                                {
+                                    j = FindIndex(V, word);
+                                }
+                            }
+                            word = "";
+                        }
+                    }                   
+                }
+                FFE_File.Close();
+
             }
         }
     }
