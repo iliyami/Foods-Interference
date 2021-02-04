@@ -83,7 +83,7 @@ namespace Foods_Interference
             while (FFE_File.Peek() >= 0)
             {
                 Line = FFE_File.ReadLine().ToString();
-                string strArray = FFE_File.split(',');
+                string strArray = Line.split(',');
                 int i = FindIndex(V, strArray[0]);
                 int j = FindIndex(V, strArray[1]);
                 if (i == -1 || j == -1)
@@ -131,6 +131,55 @@ namespace Foods_Interference
                 /*Handling Ingredient-Price File*/
                 Dictionary<string, int> HashTable = new Dictionary<string, int>();
                 Ingredients(HashTable);
+            }
+        }
+
+        // public List<string> DFS (List<Node> V, string food, int i = 0)
+        // {
+        //     visited[v] = true;
+            
+        //     foreach(var n in vList)
+        //     {
+        //         if (!visited[n])
+        //             DFS(n, visited);
+        //     }
+        // }
+
+        public int32 CalculatePrices(List<string> Ingredients, Dictionary<string, int> HashTable)
+        {
+            Int32 Sum;
+            foreach (string item in Ingredients)
+            {
+                if(HashTable.ContainsKey(item))
+                {
+                    Sum += HashTable[item];
+                }
+                else
+                {
+                    MessageBox.Show("Error Dictionary202");
+                }
+            }
+            return Sum;
+        }
+
+        public int32 GetBill(List<Node> V ,string food, int quantity, Dictionary<string, int> HashTable)
+        {
+            int32 Sum = -1;
+            foreach (Node item in V)
+            {
+                if (V.Food == food)
+                {
+                    Sum = CalculatePrices(V.Ingredients, HashTable);
+                }
+            }
+
+            if (Sum == -1)
+            {
+                MessageBox.Show("No Food found with this name in the database");
+            }
+            else
+            {
+                return Sum;
             }
         }
     }
