@@ -202,9 +202,21 @@ namespace Foods_Interference
             return "No Effect";
         }
 
+        public bool IngredientExist(List<string> Ingredients)
+        {
+            foreach (string item in Ingredients)
+            {
+                if (HashTable.ContainsKey(item) == false)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void NewFood(string name, List<string> ingredients)
         {
-            if (FindIndex(V, item) == -1)
+            if (FindIndex(V, item) == -1 || IngredientExist(ingredients))
             {
                 Node newNode = new Node();
                 NumberOfFoods++;
