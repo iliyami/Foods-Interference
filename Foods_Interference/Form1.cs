@@ -121,11 +121,12 @@ namespace Foods_Interference
             else
             {
                 /*Handling Food-Ingredients File*/
-                List<Node> V = new List<Node>();
+                // List<Node> V = new List<Node>();
                 Foods(V);
                 int NumberOfFoods = V.Count();
+
                 /*Handling Food-Interference File*/
-                List<List<string>> Adjacents = new List<List<string>>();
+                // List<List<string>> Adjacents = new List<List<string>>();
                 List<string> temp = new List<string>();
                 for (int i = 0; i < NumberOfFoods; i++)
                 {
@@ -138,7 +139,7 @@ namespace Foods_Interference
                 Effects(V, Adjacents);
 
                 /*Handling Ingredient-Price File*/
-                Dictionary<string, int> HashTable = new Dictionary<string, int>();
+                // Dictionary<string, int> HashTable = new Dictionary<string, int>();
                 Ingredients(HashTable);
             }
         }
