@@ -170,6 +170,8 @@ namespace Foods_Interference
                 if (V.Food == food)
                 {
                     Sum = CalculatePrices(V.Ingredients, HashTable);
+                    MessageBox.Show($"food {food}: {Sum}");
+                    MessageBox.Show($"Total Price: {Sum*quantity}");
                     Break;
                 }
             }
@@ -177,10 +179,6 @@ namespace Foods_Interference
             if (Sum == -1)
             {
                 MessageBox.Show("No Food found with this name in the database");
-            }
-            else
-            {
-                return Sum;
             }
         }
     }
