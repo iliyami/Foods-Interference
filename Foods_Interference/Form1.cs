@@ -154,34 +154,25 @@ namespace Foods_Interference
         //     }
         // }
 
-        public int32 CalculatePrices(List<string> Ingredients, Dictionary<string, int> HashTable)
-        {
-            Int32 Sum;
-            foreach (string item in Ingredients)
-            {
-                if(HashTable.ContainsKey(item))
-                {
-                    Sum += HashTable[item];
-                }
-                else
-                {
-                    MessageBox.Show("Error Dictionary202");
-                }
-            }
-            return Sum;
-        }
-
-        public void GetBill(List<Node> V ,string food, int quantity, Dictionary<string, int> HashTable)
+        public int GetBill(string food, Dictionary<string, int> HashTable)
         {
             int32 Sum = -1;
             foreach (Node item in V)
             {
                 if (V.Food == food)
                 {
-                    Sum = CalculatePrices(V.Ingredients, HashTable);
-                    MessageBox.Show($"food {food}: {Sum}");
-                    MessageBox.Show($"Total Price: {Sum*quantity}");
-                    Break;
+                    foreach (string item in V.Ingredients)
+                    {
+                        if(HashTable.ContainsKey(item))
+                        {
+                            Sum += HashTable[item];
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error Dictionary202");
+                        }
+                    }
+                    return Sum;
                 }
             }
 
