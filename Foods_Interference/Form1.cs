@@ -53,6 +53,53 @@ namespace Foods_Interference
             return -1;
         }
 
+        public void Foods(List<Node> V)
+        {
+            StreamReader FI_File = new StreamReader("E:\\foods.txt");
+            string Line;
+            int counter = 0;
+            while (FI_File.Peek() >= 0)
+            {
+                Line = FI_File.ReadLine().ToString();
+                string[] strArray;
+                strArray = Line.split(',');
+                Node newNode = new Node();
+                newNode.Food = strArray[0];
+                foreach (string item in strArray)
+                {
+                    newNode.Ingredients = item;
+                }
+                newNode.number = counter;
+                counter++;
+                V.add(newNode);
+            }
+            FI_File.Close();
+        }
+
+        public void Effects(List<Node> V, List<List<string>> Adjacents)
+        {
+            StreamReader FFE_File = new StreamReader("yechizi");
+            string Line;
+            while (FFE_File.Peek() >= 0)
+            {
+                Line = FFE_File.ReadLine().ToString();
+                string strArray = FFE_File.split(',');
+                int i = FindIndex(V, strArray[0]);
+                int j = FindIndex(V, strArray[1]);
+                if (i == -1 || j == -1)
+                {
+                    Console.WriteLine("Error From Indices i j - equal to -1");
+                    Close();
+                }
+                else
+                {
+                    Adjacents[i][j] = strArray[2];
+                    Adjacents[j][i] = strArray[2];
+                }
+            }
+            FFE_File.Close();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             if (CheckFiles() == false)
@@ -63,93 +110,12 @@ namespace Foods_Interference
             {
                 /*Handling Food-Ingredients File*/
                 List<Node> V = new List<Node>();
-                StreamReader FI_File = new StreamReader("E:\\foods.txt");
-                string Line;
-                int counter = 0;
-                while (FI_File.Peek() >= 0)
-                {
-                    Line = FI_File.ReadLine().ToString();
-                    string[] strArray;
-                    strArray = Line.split(',');
-                    Node newNode = new Node();
-                    newNode.Food = strArray[0];
-                    foreach (string item in strArray)
-                    {
-                        newNode.Ingredients = item;
-                    }
-                    for (int i = 0; i < Line.Lenght(); i++)
-                    {
-                        if (Line[i] != ',')
-                        {
-                            word += Line[i];
-                            if (i+1 == Line.Lenght())
-                            {
-                                newNode.Ingredients.Add(word);
-                            }
-                        }
-                        else
-                        {
-                            if (word[0] == 'F')
-                            {
-                                newNode.Food = word;
-                            }
-                            else
-                            {
-                                newNode.Ingredients.Add(word);
-                            }
-                            word = "";
-                            newNode.number = counter;
-                            counter++;
-                        }
-                    }
-                    V.add(newNode);
-                }
-                FI_File.Close();
+                Foods(V);
 
                 /*Handling Food-Interference File*/
                 List<List<string>> Adjacents = new List<List<string>>();
-                StreamReader FFE_File = new StreamReader("yechizi");
-                string Line;
-                while (FFE_File.Peek() >= 0)
-                {
-                    Line = FFE_File.ReadLine().ToString();
-                    string word = "";
-                    int i = -1, j = -1;
-                    for (int i = 0; i < Line.Lenght(); i++)
-                    {
-                        if (Line[i] != ',')
-                        {
-                            word += Line[i];
-                            if (i+1 == Line.Lenght())
-                            {
-                                if (i == -1 || j == -1)
-                                {
-                                    Console.WriteLine("Error From Index i j");
-                                    Close();
-                                }
-                                Adjacents[i][j] = word;
-                                Adjacents[j][i] = word;
-                            }
-                        }
-                        else
-                        {
-                            if (word[0] == 'F')
-                            {
-                                if (i == -1)
-                                {
-                                    i = FindIndex(V, word);
-                                }
-                                else
-                                {
-                                    j = FindIndex(V, word);
-                                }
-                            }
-                            word = "";
-                        }
-                    }                   
-                }
-                FFE_File.Close();
-
+                Effects(V, Adjacents);
+                
             }
         }
     }
