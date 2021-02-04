@@ -76,7 +76,7 @@ namespace Foods_Interference
             FI_File.Close();
         }
 
-        public void Effects(List<List<string>> Adjacents)
+        public void Effects()
         {
             StreamReader FFE_File = new StreamReader("yechizi");
             string Line;
@@ -100,7 +100,7 @@ namespace Foods_Interference
             FFE_File.Close();
         }
 
-        public void Ingredients(Dictionary<string, int> HashTable)
+        public void Ingredients()
         {
             StreamReader IP_File = new StreamReader("Address");
             string strArray;
@@ -153,6 +153,8 @@ namespace Foods_Interference
         //             DFS(n, visited);
         //     }
         // }
+
+        /*Commands Functions*/
 
         public int GetBill(string food, Dictionary<string, int> HashTable)
         {
