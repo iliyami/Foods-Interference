@@ -162,7 +162,7 @@ namespace Foods_Interference
             return Sum;
         }
 
-        public int32 GetBill(List<Node> V ,string food, int quantity, Dictionary<string, int> HashTable)
+        public void GetBill(List<Node> V ,string food, int quantity, Dictionary<string, int> HashTable)
         {
             int32 Sum = -1;
             foreach (Node item in V)
@@ -170,6 +170,8 @@ namespace Foods_Interference
                 if (V.Food == food)
                 {
                     Sum = CalculatePrices(V.Ingredients, HashTable);
+                    MessageBox.Show($"food {food}: {Sum}");
+                    MessageBox.Show($"Total Price: {Sum*quantity}");
                     Break;
                 }
             }
@@ -178,10 +180,8 @@ namespace Foods_Interference
             {
                 MessageBox.Show("No Food found with this name in the database");
             }
-            else
-            {
-                return Sum;
-            }
         }
+
+
     }
 }
