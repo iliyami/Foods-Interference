@@ -49,7 +49,7 @@ namespace Foods_Interference
                     return item.number;
                 }
             }
-            Console.WriteLine("Error1 - No Vertex with given input found!");
+            // MessageBox.Show("Error1 - No Vertex with given input found!");
             return -1;
         }
 
@@ -126,6 +126,15 @@ namespace Foods_Interference
                 int NumeberOfFoods = V.lenght();
                 /*Handling Food-Interference File*/
                 List<List<string>> Adjacents = new List<List<string>>();
+                List<string> temp = new List<string>();
+                for (int i = 0; i < NumeberOfFoods; i++)
+                {
+                    temp.Add(null);
+                }
+                for (int i = 0; i < NumeberOfFoods; i++)
+                {
+                    Adjacents.Add(temp);
+                }
                 Effects(V, Adjacents);
 
                 /*Handling Ingredient-Price File*/
@@ -182,6 +191,44 @@ namespace Foods_Interference
             }
         }
 
+        public string IsEffect(string food1, string food2, List<Node> V, List<string> Adjacents)
+        {
+            int i = FindIndex(V, food1);
+            int j = FindIndex(V, food2);
+            if (Adjacents[i][j] != null)
+            {
+                return Adjacents[i][j];
+            }
+            return "No Effect";
+        }
 
+        public void NewFood(string name, List<string> ingredients)
+        {
+            if (FindIndex(V, item) == -1)
+            {
+                Node newNode = new Node();
+                NumeberOfFoods++;
+                newNode.number = NumeberOfFoods;
+                newNode.Food = name;
+                newNode.Ingredients = ingredients;
+                Adjacents[Adjacents.lenght()-1].add()
+            }
+            else
+            {
+                MessageBox.Show("The food is already in database!");
+            }
+        }
+
+        public NewItem(string item, string name1, string name2 = "-", int price = -1, string effect = "-")
+        {
+            else if (item == "Ingredient")
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
