@@ -12,5 +12,6 @@ namespace Foods_Interference
         public string Food { get; set; }
         public int number = -1;
         public List<string> Ingredients = new List<string>();
+        bool Visited = false;
     }
 }
