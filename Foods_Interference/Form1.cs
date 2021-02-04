@@ -40,7 +40,7 @@ namespace Foods_Interference
             return true;
         }
 
-        public int FindIndex(List<Node> V, string Food)
+        public int FindIndex(string Food)
         {
             foreach (Node item in V)
             {
@@ -53,7 +53,7 @@ namespace Foods_Interference
             return -1;
         }
 
-        public void Foods(List<Node> V)
+        public void Foods()
         {
             StreamReader FI_File = new StreamReader("E:\\foods.txt");
             string Line;
@@ -76,7 +76,7 @@ namespace Foods_Interference
             FI_File.Close();
         }
 
-        public void Effects(List<Node> V, List<List<string>> Adjacents)
+        public void Effects(List<List<string>> Adjacents)
         {
             StreamReader FFE_File = new StreamReader("yechizi");
             string Line;
@@ -123,7 +123,7 @@ namespace Foods_Interference
                 /*Handling Food-Ingredients File*/
                 List<Node> V = new List<Node>();
                 Foods(V);
-                int NumberOfFoods = V.lenght();
+                int NumberOfFoods = V.Count();
                 /*Handling Food-Interference File*/
                 List<List<string>> Adjacents = new List<List<string>>();
                 List<string> temp = new List<string>();
@@ -251,6 +251,51 @@ namespace Foods_Interference
             {
                 Adjacents[i][j] = effect;
                 Adjacents[j][i] = effect;
+            }
+        }
+
+        public void Delete(string food)
+        {
+            int16 i = FindIndex(food);
+            if (i != -1)
+            {
+                V[i] = null;
+                V.Ingredients.Clear();
+                
+                for (int j = 0; j < Adjacents.Count(); j++)
+                {
+                    if (Adjacents[i][j] != null)
+                    {
+                        Adjacents[i][j] = null;
+                        Adjacents[j][i] = null;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Food {food} is not in the database!");
+            }
+        }
+
+        public void Delete(string food1, string food2)
+        {
+            int16 i = FindIndex(food1);
+            int16 j = FindIndex(food2);
+            if (i == -1 || j == -1)
+            {
+                MessageBox.Show("Input is not in the database!");
+            }
+            else
+            {
+                if (Adjacents[i][j] == null)
+                {
+                    MessageBox.Show($"There is no food interference for {food1} and {food2}");
+                }
+                else
+                {
+                    Adjacents[i][j] = null;
+                    Adjacents[j][i] = null;
+                }
             }
         }
     }
