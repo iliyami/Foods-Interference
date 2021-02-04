@@ -48,12 +48,13 @@ namespace Foods_Interference
             }
             else
             {
+                /*Handling Food-Ingredients File*/
                 StreamReader ReadFoods = new StreamReader("E:\\foods.txt");
                 string Line;
+                int counter = 0;
                 while (ReadFoods.Peek() >= 0)
                 {
                     Line = ReadFoods.ReadLine().ToString();
-                    bool reachFood = false;
                     string word = "";
                     Node newNode = new Node();
                     foreach (char character in Line)
@@ -64,9 +65,8 @@ namespace Foods_Interference
                         }
                         else
                         {
-                            if (reachFood == false)
+                            if (word[0] == 'F')
                             {
-                                reachFood = true;
                                 newNode.Food = word;
                             }
                             else
@@ -74,12 +74,14 @@ namespace Foods_Interference
                                 newNode.Ingredients.Add(word);
                             }
                             word = "";
-                        }
-                        if(character == ',' && reachFood == false)
-                        {
-                            reachFood = true;
+                            newNode.number = counter;
+                            counter++;
                         }
                     }
+
+                    /*Handling Food-Interference File*/
+                    StreamReader FI_File = new StreamReader("E:\\foods.txt");
+
 
                 }
                 ReadFoods.Close();
