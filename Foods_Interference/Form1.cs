@@ -123,15 +123,15 @@ namespace Foods_Interference
                 /*Handling Food-Ingredients File*/
                 List<Node> V = new List<Node>();
                 Foods(V);
-                int NumeberOfFoods = V.lenght();
+                int NumberOfFoods = V.lenght();
                 /*Handling Food-Interference File*/
                 List<List<string>> Adjacents = new List<List<string>>();
                 List<string> temp = new List<string>();
-                for (int i = 0; i < NumeberOfFoods; i++)
+                for (int i = 0; i < NumberOfFoods; i++)
                 {
                     temp.Add(null);
                 }
-                for (int i = 0; i < NumeberOfFoods; i++)
+                for (int i = 0; i < NumberOfFoods; i++)
                 {
                     Adjacents.Add(temp);
                 }
@@ -207,11 +207,16 @@ namespace Foods_Interference
             if (FindIndex(V, item) == -1)
             {
                 Node newNode = new Node();
-                NumeberOfFoods++;
-                newNode.number = NumeberOfFoods;
+                NumberOfFoods++;
+                newNode.number = NumberOfFoods;
                 newNode.Food = name;
                 newNode.Ingredients = ingredients;
-                Adjacents[Adjacents.lenght()-1].add()
+                List<string> temp = new List<string>();
+                for (int i = 0; i < NumberOfFoods; i++)
+                {
+                    temp.Add(null);
+                }
+                Adjacents.Add(temp);
             }
             else
             {
