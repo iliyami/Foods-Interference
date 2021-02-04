@@ -100,17 +100,17 @@ namespace Foods_Interference
             FFE_File.Close();
         }
 
-        public int Hash(string Food, int p)
-        {
-            long Sum;
-            for (int i = 2; i < Food.lenght(); i++)
-            {
-                Sum += (int)Food[i];
-            }
-            return Sum % p;
-        }
+        // public int Hash(string Food, int p)
+        // {
+        //     long Sum;
+        //     for (int i = 2; i < Food.lenght(); i++)
+        //     {
+        //         Sum += (int)Food[i];
+        //     }
+        //     return Sum % p;
+        // }
 
-        public void Ingredients()
+        public void Ingredients(Dictionary<string, int> HashTable)
         {
             StreamReader IP_File = new StreamReader("Address");
             string strArray;
@@ -119,6 +119,7 @@ namespace Foods_Interference
                 strArray = IP_File.ReadLine().ToString().split(',');
             }
             strArray = IP_File.ReadLine().ToString().split(',');
+            HashTable.Add(strArray[0], Int32.Parse(strArray[1]));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -138,7 +139,7 @@ namespace Foods_Interference
                 Effects(V, Adjacents);
 
                 /*Handling Ingredient-Price File*/
-                
+                Dictionary<string, int> HashTable = new Dictionary<string, int>();
             }
         }
     }
