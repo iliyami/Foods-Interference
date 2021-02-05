@@ -209,26 +209,34 @@ namespace Foods_Interference
             return true;
         }
 
-        public void NewFood(string food, List<string> ingredients)
+        public int NewFood(string food, List<string> ingredients)
         {
-            if (FindIndex(V, food) == -1 || IngredientExist(ingredients))
+            if (IngredientExist(ingredients) == true)
             {
-                Node newNode = new Node();
-                NumberOfFoods++;
-                newNode.number = NumberOfFoods;
-                newNode.Food = food;
-                newNode.Ingredients = ingredients;
-                List<string> temp = new List<string>();
-                for (int i = 0; i < NumberOfFoods; i++)
+                if (FindIndex(V, food) == -1)
                 {
-                    temp.Add(null);
+                    Node newNode = new Node();
+                    NumberOfFoods++;
+                    newNode.number = NumberOfFoods;
+                    newNode.Food = food;
+                    newNode.Ingredients = ingredients;
+                    List<string> temp = new List<string>();
+                    for (int i = 0; i < NumberOfFoods; i++)
+                    {
+                        temp.Add(null);
+                    }
+                    Adjacents.Add(temp);
+                    return 0;
                 }
-                Adjacents.Add(temp);
+                else
+                {
+                    //The food is already in the database
+                    return -1;
+                }
             }
-            else
-            {
-                MessageBox.Show("The food is already in database!");
-            }
+
+            //Do not have necessary ingredients!
+            retunr -2;
         }
 
         public NewIngredient(string Ingredient, int price)
