@@ -158,7 +158,7 @@ namespace Foods_Interference
 
         public int GetBill(string food)
         {
-            int32 Sum = -1;
+            int32 Sum = 0;
             foreach (Node item in V)
             {
                 if (V.Food == food)
@@ -171,17 +171,14 @@ namespace Foods_Interference
                         }
                         else
                         {
-                            MessageBox.Show("Error Dictionary202");
+                            return -1;
                         }
                     }
                     return Sum;
                 }
             }
 
-            if (Sum == -1)
-            {
-                MessageBox.Show("No Food found with this name in the database");
-            }
+            return -1;
         }
 
         public string IsEffect(string food1, string food2)
