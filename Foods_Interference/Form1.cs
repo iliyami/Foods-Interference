@@ -310,5 +310,337 @@ namespace Foods_Interference
             //Successful
             return 0;
         }
+
+
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+        //------------------my funcs(az inja be paiin man zadam)--------------------------
+
+
+        public void FullClear()
+        {
+        total_Price_lbl.Text = "";
+        add_btn_f1.Enabled=false;                
+        food_name_txt_f1.Enabled=false;
+        food_name_txt_f1.Text = "";
+        number_of_food_txt_f1.Enabled=false;
+        number_of_food_txt_f1.Text = "";
+        end_and_Show_Bill_btn_f1.Enabled=false;          
+        richTextBox_food_f1.Enabled=false;
+        richTextBox_food_f1.Text = "";
+        Close_bill_btn_f1.Enabled=false;               
+        btn_disable_f2.Enabled=false;               
+        richTextBox_efects_f2.Enabled=false;
+        richTextBox_efects_f2.Text = "";
+        richTextBox_foods_f2.Enabled=false;
+        richTextBox_foods_f2.Text = "";
+        btn_end_f2.Enabled=false;                    
+        btn_add_f2.Enabled=false;                    
+        food_name_txt_f2.Enabled=false;
+        food_name_txt_f2.Text = "";
+        txt_foodname2_f3_2.Enabled=false;
+        txt_foodname2_f3_2.Text = "";
+        txt_foodname1_f3_2.Enabled=false;
+        txt_foodname1_f3_2.Text = "";
+        txt_efect_f3_2.Enabled=false;
+        txt_efect_f3_2.Text = "";
+        btn_add_food_last_f3_1.Enabled=false;             
+        btn_add_ingredient_f3_1.Enabled=false;             
+        richTextBox_ingredients_f3_1.Enabled=false;
+        richTextBox_ingredients_f3_1.Text = "";
+        txt_ingredient_f3_1.Enabled=false;
+        txt_ingredient_f3_1.Text = "";
+        txt_foodname_f3_1.Enabled=false;
+        txt_foodname_f3_1.Text = "";
+        btn_add_ingredient_last_f3_3.Enabled=false;       
+        txt_ingredient_price_f3_3.Enabled=false;
+        txt_ingredient_price_f3_3.Text = "";
+        txt_ingredient_name_f3_3.Enabled=false;
+        txt_ingredient_name_f3_3.Text = "";
+        btn_add_efect_last_f3_2.Enabled=false;             
+        btn_remove_just_efect_last_f4_2.Enabled=false;   
+        txt_food_1_name_f4_2.Enabled=false;
+        txt_food_1_name_f4_2.Text = "";
+        txt_food_2_name_f4_2.Enabled=false;
+        txt_food_2_name_f4_2.Text = "";
+        btn_remove_food_last_f4_1.Enabled=false;        
+        txt_food_name_f4_1.Enabled=false;
+        txt_food_name_f4_1.Text = "";
+        richTextBox_total_price_f1.Enabled=false;
+        richTextBox_total_price_f1.Text = "";
+        richTextBox_price_f1.Enabled=false;
+        richTextBox_price_f1.Text = "";
+        richTextBox_number_f1.Enabled = false;
+        richTextBox_number_f1.Text = "";
+        total_Price_lbl.Visible = false;
+        lbl_price_header_f1.Visible = false;
+        total = 0;
+        foods_for_efect.Clear();
+        }
+
+        private void calculateTheBill_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now+" --> "+"calculateTheBill_ToolStripMenuItem_Click");
+            Log.Close();
+
+
+
+
+            FullClear();
+            food_name_txt_f1.Enabled = true;
+            number_of_food_txt_f1.Enabled = true;
+            add_btn_f1.Enabled = true;
+            end_and_Show_Bill_btn_f1.Enabled = true;
+            Close_bill_btn_f1.Enabled = true;
+            richTextBox_food_f1.Enabled = true;
+            richTextBox_number_f1.Enabled = true;
+            richTextBox_price_f1.Enabled = true;
+            richTextBox_total_price_f1.Enabled = true;
+        }
+
+        private void foodEfectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now+" --> "+"foodEfectToolStripMenuItem_Click");
+            Log.Close();
+
+            FullClear();
+            btn_add_f2.Enabled = true;
+            btn_disable_f2.Enabled = true;
+            btn_end_f2.Enabled = true;
+            food_name_txt_f2.Enabled = true;
+            richTextBox_efects_f2.Enabled = true;
+            richTextBox_foods_f2.Enabled = true;
+        }
+
+        private void addFoodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now+" --> "+"addFoodToolStripMenuItem_Click");
+            Log.Close();
+
+            FullClear();
+            btn_add_food_last_f3_1.Enabled = true;
+            btn_add_ingredient_f3_1.Enabled = true;
+            richTextBox_ingredients_f3_1.Enabled = true;
+            txt_foodname_f3_1.Enabled = true;
+            txt_ingredient_f3_1.Enabled = true;
+            
+        }
+
+        private void addEfectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now+" --> "+"addEfectToolStripMenuItem_Click");
+            Log.Close();
+
+            FullClear();
+            btn_add_efect_last_f3_2.Enabled = true;
+            txt_efect_f3_2.Enabled = true;
+            txt_foodname1_f3_2.Enabled = true;
+            txt_foodname2_f3_2.Enabled = true;
+        }
+
+        private void addIngredientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now+" --> "+"addIngredientToolStripMenuItem_Click");
+            Log.Close();
+
+            FullClear();
+            btn_add_ingredient_last_f3_3.Enabled = true;
+            txt_ingredient_name_f3_3.Enabled = true;
+            txt_ingredient_price_f3_3.Enabled = true;
+        }
+
+        private void removeFoodOrEfectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now+" --> "+"removeFoodOrEfectToolStripMenuItem_Click");
+            Log.Close();
+
+            FullClear();
+            btn_remove_food_last_f4_1.Enabled = true;
+            txt_food_name_f4_1.Enabled = true;
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now+" --> "+"removeToolStripMenuItem_Click");
+            Log.Close();
+
+            FullClear();
+            btn_remove_just_efect_last_f4_2.Enabled = true;
+            txt_food_1_name_f4_2.Enabled = true;
+            txt_food_2_name_f4_2.Enabled = true;
+        }
+
+
+
+        //btn_funcs-------------------------------------------------------------------------------------
+        int total = 0;
+        private void add_btn_f1_Click(object sender, EventArgs e)
+        {
+            if(food_name_txt_f1.Text=="")
+            {
+                MessageBox.Show("Pleas enter food name!");
+            }
+            else if(number_of_food_txt_f1.Text=="")
+            {
+                MessageBox.Show("Pleas enter number of foods!");
+            }
+            else
+            {
+                int number = 0;
+                bool ok = true;
+                int food_total=0;
+                string food_name=food_name_txt_f1.Text;
+                int price=GetBill(food_name);
+                food_name_txt_f1.Text="";
+                try
+                {
+                    number = int.Parse(number_of_food_txt_f1.Text);
+                    number_of_food_txt_f1.Text = "";
+                }
+                catch
+                {
+                    number_of_food_txt_f1.Text = "";
+                    ok = false;
+                    MessageBox.Show("pleas enter number in correct foramt !");
+                }
+                
+
+                if(price!=-1&&ok)
+                {
+                    richTextBox_food_f1.Text+=(food_name+"\n");
+                    richTextBox_number_f1.Text+=(number.ToString()+"\n");
+                    richTextBox_price_f1.Text+=(price.ToString()+"\n");
+                    food_total = number * price;
+                    richTextBox_total_price_f1.Text += (food_total.ToString() + "\n");
+                    total=food_total+total;
+                    total_Price_lbl.Text = total.ToString();
+                    StreamWriter Log = File.AppendText("logs.txt");
+                    Log.WriteLine(DateTime.Now + " --> " +number+" "+food_name+" Aded to bill with total price : "+food_total);
+                    Log.Close();
+                    
+                }
+
+
+
+            }
+        }
+
+        private void end_and_Show_Bill_btn_f1_Click(object sender, EventArgs e)
+        {
+            total_Price_lbl.Visible = true;
+            lbl_price_header_f1.Visible = true;
+            end_and_Show_Bill_btn_f1.Enabled = false;
+            add_btn_f1.Enabled = false;
+            food_name_txt_f1.Enabled = false;
+            number_of_food_txt_f1.Enabled = false;
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now + " --> " + "a bill Was issued whit price : "+total);
+            Log.Close();
+        }
+
+        private void Close_bill_btn_f1_Click(object sender, EventArgs e)
+        {
+            FullClear();
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now + " --> " + "Bill Cleared!");
+            Log.Close();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        List<string> foods_for_efect=new List<string>();
+        private void btn_add_f2_Click(object sender, EventArgs e)
+        {
+            if (food_name_txt_f2.Text == "")
+            {
+                MessageBox.Show("pleas enter food name !");
+            }
+            else
+            {
+                string food_name=food_name_txt_f2.Text;
+                food_name_txt_f2.Text = "";
+                int food = FindIndex(food_name);
+                if (food!=-1)
+                {
+                    richTextBox_foods_f2.Text += food_name + "\n";
+                    StreamWriter Log = File.AppendText("logs.txt");
+                    Log.WriteLine(DateTime.Now + " --> " + "food "+food_name+" aded for check efects.");
+                    Log.Close();
+                    if (foods_for_efect.Count > 0)
+                    {
+                        foreach (string fd in foods_for_efect)
+                        {
+                            string efect = IsEffect(food_name, fd);
+                            richTextBox_efects_f2.Text += food_name + " has " + efect + " efect with " + fd + "\n";
+                            
+                        }
+
+                    }
+                    StreamWriter Log2 = File.AppendText("logs.txt");
+                    Log2.WriteLine(DateTime.Now + " --> " + "food " + food_name + " efects with other foods aded to efect list.");
+                    Log2.Close();
+                    foods_for_efect.Add(food_name);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Food Not Found In data base !");
+                }
+
+            }
+        }
+
+        private void btn_end_f2_Click(object sender, EventArgs e)
+        {
+            btn_add_f2.Enabled = false;
+            food_name_txt_f2.Enabled = false;
+            btn_end_f2.Enabled = false;
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now + " --> " + "end of checking efects.");
+            Log.Close();
+        }
+
+        private void btn_disable_f2_Click(object sender, EventArgs e)
+        {
+            FullClear();
+            StreamWriter Log = File.AppendText("logs.txt");
+            Log.WriteLine(DateTime.Now + " --> " + "clear and exit from ckeck efect section.");
+            Log.Close();
+        }                                 
+        /*
+        StreamWriter Log = File.AppendText("logs.txt");
+        Log.WriteLine(DateTime.Now+" --> "+log);
+        Log.Close();
+        */
+    
     }
 }
