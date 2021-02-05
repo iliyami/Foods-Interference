@@ -48,6 +48,10 @@ namespace Foods_Interference
         {
             foreach (Node item in graph.V)
             {
+                if (item == null)
+                {
+                    continue;
+                }
                 if (item.Food == Food)
                 {
                     return item.number;
@@ -162,6 +166,10 @@ namespace Foods_Interference
             Int32 Sum = 0;
             foreach (Node item in graph.V)
             {
+                if (item == null)
+                {
+                    continue;
+                }
                 if (item.Food == food)
                 {
                     foreach (string ingr in item.Ingredients)
@@ -279,7 +287,7 @@ namespace Foods_Interference
             int i = FindIndex(food);
             if (i != -1)
             {
-                graph.V[i].Ingredients.Clear();
+                //graph.V[i].Ingredients.Clear();
                 graph.V[i] = null;
 
                 for (int j = 0; j < graph.Adjacents.Count(); j++)
