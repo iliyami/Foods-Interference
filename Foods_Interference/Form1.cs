@@ -157,7 +157,7 @@ namespace Foods_Interference
 
         /*Commands Functions*/
 
-        public int GetBill(string food, Dictionary<string, int> HashTable)
+        public int GetBill(string food)
         {
             int32 Sum = -1;
             foreach (Node item in V)
@@ -185,7 +185,7 @@ namespace Foods_Interference
             }
         }
 
-        public string IsEffect(string food1, string food2, List<Node> V, List<string> Adjacents)
+        public string IsEffect(string food1, string food2)
         {
             int i = FindIndex(V, food1);
             int j = FindIndex(V, food2);
