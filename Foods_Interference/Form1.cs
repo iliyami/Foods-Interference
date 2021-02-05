@@ -171,13 +171,15 @@ namespace Foods_Interference
                         }
                         else
                         {
+                            //In baraye debug khodame. bar midaram bade debug
                             MessageBox.Show("Error 101: No Ingredient found!");
                         }
                     }
+                    //Successful
                     return Sum;
                 }
             }
-
+            //Food {food_name} is not in the database!
             return -1;
         }
 
@@ -192,8 +194,10 @@ namespace Foods_Interference
             }
             if (Adjacents[i][j] != null)
             {
+                //Return The effect name
                 return Adjacents[i][j];
             }
+            //No Effect
             return "No";
         }
 
@@ -226,6 +230,7 @@ namespace Foods_Interference
                         temp.Add(null);
                     }
                     Adjacents.Add(temp);
+                    //Successful
                     return 0;
                 }
                 else
