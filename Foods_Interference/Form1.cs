@@ -252,19 +252,20 @@ namespace Foods_Interference
             return False;
         }
 
-        public NewEffect(string food1, string food2, string effect)
+        public bool NewEffect(string food1, string food2, string effect)
         {
             int i = FindIndex(V, food1);
             int j = FindIndex(V, food2);
             if ( i == -1 || j == -1)
             {
-                MessageBox.Show($"food {food1} is not in the database!");
+                //Food {food_name} is not in the database!
+                return false;
             }
-            else
-            {
-                Adjacents[i][j] = effect;
-                Adjacents[j][i] = effect;
-            }
+
+            Adjacents[i][j] = effect;
+            Adjacents[j][i] = effect;
+            //Successful
+            return true;
         }
 
         public void Delete(string food)
