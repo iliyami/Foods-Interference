@@ -185,6 +185,11 @@ namespace Foods_Interference
         {
             int i = FindIndex(V, food1);
             int j = FindIndex(V, food2);
+            if (i == -1 || j == -1)
+            {
+                //NFD: No Food in the Database
+                return "NFD";
+            }
             if (Adjacents[i][j] != null)
             {
                 return Adjacents[i][j];
