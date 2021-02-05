@@ -171,7 +171,7 @@ namespace Foods_Interference
                         }
                         else
                         {
-                            return -1;
+                            MessageBox.Show("Error 101: No Ingredient found!");
                         }
                     }
                     return Sum;
