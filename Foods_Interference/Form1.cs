@@ -268,7 +268,7 @@ namespace Foods_Interference
             return true;
         }
 
-        public void Delete(string food)
+        public bool Delete(string food)
         {
             int16 i = FindIndex(food);
             if (i != -1)
@@ -284,26 +284,28 @@ namespace Foods_Interference
                         Adjacents[j][i] = null;
                     }
                 }
+                return True;
             }
-            else
-            {
-                MessageBox.Show($"Food {food} is not in the database!");
-            }
+            
+            //Food {food_name} is not in the database!
+            return False;
         }
 
-        public void Delete(string food1, string food2)
+        public int Delete(string food1, string food2)
         {
             int16 i = FindIndex(food1);
             int16 j = FindIndex(food2);
             if (i == -1 || j == -1)
             {
-                MessageBox.Show("Input is not in the database!");
+                //Input is not in the database!
+                return -1;
             }
             else
             {
                 if (Adjacents[i][j] == null)
                 {
-                    MessageBox.Show($"There is no food interference for {food1} and {food2}");
+                    //There is no food effect for {food1_name} and {food2_name}
+                    return -2;
                 }
                 else
                 {
@@ -311,6 +313,8 @@ namespace Foods_Interference
                     Adjacents[j][i] = null;
                 }
             }
+            //Successful
+            return 0;
         }
     }
 }
