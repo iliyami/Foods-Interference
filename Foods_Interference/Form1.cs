@@ -143,19 +143,8 @@ namespace Foods_Interference
             }
         }
 
-        // public List<string> DFS (List<Node> V, string food, int i = 0)
-        // {
-        //     visited[v] = true;
-            
-        //     foreach(var n in vList)
-        //     {
-        //         if (!visited[n])
-        //             DFS(n, visited);
-        //     }
-        // }
 
         /*Commands Functions*/
-
         public int GetBill(string food)
         {
             int32 Sum = 0;
