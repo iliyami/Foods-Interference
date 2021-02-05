@@ -49,7 +49,6 @@ namespace Foods_Interference
                     return item.number;
                 }
             }
-            // MessageBox.Show("Error1 - No Vertex with given input found!");
             return -1;
         }
 
