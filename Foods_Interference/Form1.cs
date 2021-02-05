@@ -239,16 +239,17 @@ namespace Foods_Interference
             retunr -2;
         }
 
-        public NewIngredient(string Ingredient, int price)
+        public bool NewIngredient(string Ingredient, int price)
         {
             if (HashTable.ContainsKey(name) == false)
             {
                 HashTable.Add(Ingredient, price);
+                //Successful
+                return True;
             }
-            else
-            {
-                MessageBox.Show("The food is already in database!");
-            }
+            
+            //The ingredient is already in the database!
+            return False;
         }
 
         public NewEffect(string food1, string food2, string effect)
