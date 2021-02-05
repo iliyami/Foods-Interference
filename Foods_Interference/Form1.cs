@@ -189,7 +189,7 @@ namespace Foods_Interference
             {
                 return Adjacents[i][j];
             }
-            return "No Effect";
+            return "No";
         }
 
         public bool IngredientExist(List<string> Ingredients)
