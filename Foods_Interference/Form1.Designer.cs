@@ -538,6 +538,7 @@ namespace Foods_Interference
             this.btn_add_ingredient_last_f3_3.TabIndex = 30;
             this.btn_add_ingredient_last_f3_3.Text = "Add ingredient";
             this.btn_add_ingredient_last_f3_3.UseVisualStyleBackColor = true;
+            this.btn_add_ingredient_last_f3_3.Click += new System.EventHandler(this.btn_add_ingredient_last_f3_3_Click);
             // 
             // label14
             // 
@@ -582,6 +583,7 @@ namespace Foods_Interference
             this.btn_add_efect_last_f3_2.TabIndex = 25;
             this.btn_add_efect_last_f3_2.Text = "Add Efect";
             this.btn_add_efect_last_f3_2.UseVisualStyleBackColor = true;
+            this.btn_add_efect_last_f3_2.Click += new System.EventHandler(this.btn_add_efect_last_f3_2_Click);
             // 
             // label13
             // 
@@ -643,6 +645,7 @@ namespace Foods_Interference
             this.btn_add_food_last_f3_1.TabIndex = 20;
             this.btn_add_food_last_f3_1.Text = "Add Food";
             this.btn_add_food_last_f3_1.UseVisualStyleBackColor = true;
+            this.btn_add_food_last_f3_1.Click += new System.EventHandler(this.btn_add_food_last_f3_1_Click);
             // 
             // btn_add_ingredient_f3_1
             // 
@@ -653,6 +656,7 @@ namespace Foods_Interference
             this.btn_add_ingredient_f3_1.TabIndex = 18;
             this.btn_add_ingredient_f3_1.Text = "Add ingredient";
             this.btn_add_ingredient_f3_1.UseVisualStyleBackColor = true;
+            this.btn_add_ingredient_f3_1.Click += new System.EventHandler(this.btn_add_ingredient_f3_1_Click);
             // 
             // label10
             // 
@@ -755,6 +759,7 @@ namespace Foods_Interference
             this.btn_remove_just_efect_last_f4_2.TabIndex = 36;
             this.btn_remove_just_efect_last_f4_2.Text = "Remove Efect Between two Food";
             this.btn_remove_just_efect_last_f4_2.UseVisualStyleBackColor = true;
+            this.btn_remove_just_efect_last_f4_2.Click += new System.EventHandler(this.btn_remove_just_efect_last_f4_2_Click);
             // 
             // label17
             // 
@@ -799,6 +804,7 @@ namespace Foods_Interference
             this.btn_remove_food_last_f4_1.TabIndex = 32;
             this.btn_remove_food_last_f4_1.Text = "Remove Food and Efects";
             this.btn_remove_food_last_f4_1.UseVisualStyleBackColor = true;
+            this.btn_remove_food_last_f4_1.Click += new System.EventHandler(this.btn_remove_food_last_f4_1_Click);
             // 
             // label16
             // 
