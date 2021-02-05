@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Foods_Interference
 {
 
-    static class Graph
+    public static class Graph
     {
         List<Node> V = new List<Node>();
         List<List<string>> Adjacents = new List<List<string>>();

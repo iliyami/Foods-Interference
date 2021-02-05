@@ -19,6 +19,8 @@ namespace Foods_Interference
             InitializeComponent();
         }
 
+        //Graph graph;
+
         public bool CheckFiles()
         {
             if (!File.Exists("E:\\effects.txt"))
@@ -41,7 +43,7 @@ namespace Foods_Interference
             return true;
         }
 
-        public int FindIndex(string Food)
+        public int FindIndex(string Food, List<Node> V)
         {
             foreach (Node item in V)
             {
@@ -52,8 +54,8 @@ namespace Foods_Interference
             }
             return -1;
         }
-
-        public void Foods()
+        
+        public void Foods(List<Node> V)
         {
             StreamReader FI_File = new StreamReader("E:\\foods.txt");
             string Line;
@@ -62,30 +64,31 @@ namespace Foods_Interference
             {
                 Line = FI_File.ReadLine().ToString();
                 string[] strArray;
-                strArray = Line.split(',');
+                strArray = Line.Split(',');
                 Node newNode = new Node();
                 newNode.Food = strArray[0];
-                foreach (string item in strArray)
-                {
-                    newNode.Ingredients = item;
-                }
+                newNode.Ingredients = strArray.ToList();
+                //foreach (string item in strArray)
+                //{
+                //    newNode.Ingredients = item;
+                //}
                 newNode.number = counter;
                 counter++;
-                V.add(newNode);
+                V.Add(newNode);
             }
             FI_File.Close();
         }
 
-        public void Effects()
+        public void Effects(List<Node> V, List <List<string>> Adjacents)
         {
             StreamReader FFE_File = new StreamReader("yechizi");
             string Line;
             while (FFE_File.Peek() >= 0)
             {
                 Line = FFE_File.ReadLine().ToString();
-                string strArray = Line.split(',');
-                int i = FindIndex(V, strArray[0]);
-                int j = FindIndex(V, strArray[1]);
+                string[] strArray = Line.Split(',');
+                int i = FindIndex(strArray[0], V);
+                int j = FindIndex(strArray[1], V);
                 if (i == -1 || j == -1)
                 {
                     Console.WriteLine("Error From Indices i j - equal to -1");
@@ -100,13 +103,13 @@ namespace Foods_Interference
             FFE_File.Close();
         }
 
-        public void Ingredients()
+        public void Ingredients(Dictionary<string, int> HashTable)
         {
             StreamReader IP_File = new StreamReader("Address");
-            string strArray;
+            string[] strArray;
             while (IP_File.Peek() >= 0)
             {
-                strArray = IP_File.ReadLine().ToString().split(',');
+                strArray = IP_File.ReadLine().ToString().Split(',');
                 HashTable.Add(strArray[0], Int32.Parse(strArray[1]));
             }
             IP_File.Close();
@@ -121,9 +124,10 @@ namespace Foods_Interference
             else
             {
                 /*Handling Food-Ingredients File*/
-                // List<Node> V = new List<Node>();
-                Foods(V);
-                int NumberOfFoods = V.Count();
+                Graph graph = new Graph();
+                // List<Node> graph.V = new List<Node>();
+                Foods(graph.V);
+                int NumberOfFoods = graph.V.Count();
 
                 /*Handling Food-Interference File*/
                 // List<List<string>> Adjacents = new List<List<string>>();
@@ -134,30 +138,30 @@ namespace Foods_Interference
                 }
                 for (int i = 0; i < NumberOfFoods; i++)
                 {
-                    Adjacents.Add(temp);
+                    graph.Adjacents.Add(temp);
                 }
-                Effects(V, Adjacents);
+                Effects(graph.V, graph.Adjacents);
 
                 /*Handling Ingredient-Price File*/
                 // Dictionary<string, int> HashTable = new Dictionary<string, int>();
-                Ingredients(HashTable);
+                Ingredients(graph.HashTable);
             }
         }
 
 
         /*Commands Functions*/
-        public int GetBill(string food)
+        public int GetBill(string food, List<Node> V, Dictionary<string, int> HashTable)
         {
-            int32 Sum = 0;
+            Int32 Sum = 0;
             foreach (Node item in V)
             {
-                if (V.Food == food)
+                if (item.Food == food)
                 {
-                    foreach (string item in V.Ingredients)
+                    foreach (string ingr in item.Ingredients)
                     {
-                        if (HashTable.ContainsKey(item))
+                        if (HashTable.ContainsKey(ingr))
                         {
-                            Sum += HashTable[item];
+                            Sum += HashTable[ingr];
                         }
                         else
                         {
@@ -173,10 +177,10 @@ namespace Foods_Interference
             return -1;
         }
 
-        public string IsEffect(string food1, string food2)
+        public string IsEffect(string food1, string food2, List<Node> V, List<List<string>> Adjacents)
         {
-            int i = FindIndex(V, food1);
-            int j = FindIndex(V, food2);
+            int i = FindIndex(food1, V);
+            int j = FindIndex(food2, V);
             if (i == -1 || j == -1)
             {
                 //NFD: No Food in the Database
@@ -191,7 +195,7 @@ namespace Foods_Interference
             return "No";
         }
 
-        public bool IngredientExist(List<string> Ingredients)
+        public bool IngredientExist(List<string> Ingredients, Dictionary<string, int> HashTable)
         {
             foreach (string item in Ingredients)
             {
@@ -203,11 +207,11 @@ namespace Foods_Interference
             return true;
         }
 
-        public int NewFood(string food, List<string> ingredients)
+        public int NewFood(string food, List<string> ingredients, int NumberOfFoods)
         {
-            if (IngredientExist(ingredients) == true)
+            if (IngredientExist(ingredients, graph.HashTable) == true)
             {
-                if (FindIndex(V, food) == -1)
+                if (FindIndex(food, graph.V) == -1)
                 {
                     Node newNode = new Node();
                     NumberOfFoods++;
@@ -219,7 +223,7 @@ namespace Foods_Interference
                     {
                         temp.Add(null);
                     }
-                    Adjacents.Add(temp);
+                    graph.Adjacents.Add(temp);
                     //Successful
                     return 0;
                 }
@@ -234,62 +238,62 @@ namespace Foods_Interference
             return -2;
         }
 
-        public bool NewIngredient(string Ingredient, int price)
+        public bool NewIngredient(string Ingredient, int price, Dictionary<string, int> HashTable)
         {
-            if (HashTable.ContainsKey(name) == false)
+            if (HashTable.ContainsKey(Ingredient) == false)
             {
                 HashTable.Add(Ingredient, price);
                 //Successful
-                return True;
+                return true;
             }
 
             //The ingredient is already in the database!
-            return False;
+            return false;
         }
 
-        public bool NewEffect(string food1, string food2, string effect)
+        public bool NewEffect(string food1, string food2, string effect, Graph graph)
         {
-            int i = FindIndex(V, food1);
-            int j = FindIndex(V, food2);
+            int i = FindIndex(food1, graph.V);
+            int j = FindIndex(food2, graph.V);
             if (i == -1 || j == -1)
             {
                 //Food {food_name} is not in the database!
                 return false;
             }
 
-            Adjacents[i][j] = effect;
-            Adjacents[j][i] = effect;
+            graph.Adjacents[i][j] = effect;
+            graph.Adjacents[j][i] = effect;
             //Successful
             return true;
         }
 
-        public bool Delete(string food)
+        public bool Delete(string food, Graph graph)
         {
-            int16 i = FindIndex(food);
+            int i = FindIndex(food, graph.V);
             if (i != -1)
             {
-                V[i] = null;
-                V.Ingredients.Clear();
+                graph.V[i].Ingredients.Clear();
+                graph.V[i] = null;
 
-                for (int j = 0; j < Adjacents.Count(); j++)
+                for (int j = 0; j < graph.Adjacents.Count(); j++)
                 {
-                    if (Adjacents[i][j] != null)
+                    if (graph.Adjacents[i][j] != null)
                     {
-                        Adjacents[i][j] = null;
-                        Adjacents[j][i] = null;
+                        graph.Adjacents[i][j] = null;
+                        graph.Adjacents[j][i] = null;
                     }
                 }
-                return True;
+                return true;
             }
 
             //Food {food_name} is not in the database!
-            return False;
+            return false;
         }
 
-        public int Delete(string food1, string food2)
+        public int Delete(string food1, string food2, Graph graph)
         {
-            int16 i = FindIndex(food1);
-            int16 j = FindIndex(food2);
+            int i = FindIndex(food1, graph.V);
+            int j = FindIndex(food2, graph.V);
             if (i == -1 || j == -1)
             {
                 //Input is not in the database!
@@ -297,15 +301,15 @@ namespace Foods_Interference
             }
             else
             {
-                if (Adjacents[i][j] == null)
+                if (graph.Adjacents[i][j] == null)
                 {
                     //There is no food effect for {food1_name} and {food2_name}
                     return -2;
                 }
                 else
                 {
-                    Adjacents[i][j] = null;
-                    Adjacents[j][i] = null;
+                    graph.Adjacents[i][j] = null;
+                    graph.Adjacents[j][i] = null;
                 }
             }
             //Successful
@@ -536,7 +540,7 @@ namespace Foods_Interference
 
 
 
-                int price=GetBill(food_name);
+                int price= GetBill(food_name);
                 //edit
                 //int price = 200;
                 watch.Stop();
