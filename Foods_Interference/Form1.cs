@@ -604,7 +604,7 @@ namespace Foods_Interference
 
             watch.Stop();
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + (watch.ElapsedMilliseconds) * 1000);
+            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 1 :" + (watch.ElapsedMilliseconds) * 1000);
             TIME.Close();
         }
 
@@ -704,7 +704,7 @@ namespace Foods_Interference
             watch.Stop();
 
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + (watch.ElapsedMilliseconds) * 1000);
+            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 2 :" + (watch.ElapsedMilliseconds) * 1000);
             TIME.Close();
         }
 
@@ -743,17 +743,11 @@ namespace Foods_Interference
         {
 
 
-            var watch = new System.Diagnostics.Stopwatch();
-            watch.Start();
-
-
-
-
 
 
             if (txt_ingredient_f3_1.Text == "")
             {
-                watch.Stop();
+                
                 MessageBox.Show("Please Enter A Ingredient !");
             }
             else
@@ -762,21 +756,13 @@ namespace Foods_Interference
                 richTextBox_ingredients_f3_1.Text += txt_ingredient_f3_1.Text + "\n";
 
                 StreamWriter Log = File.AppendText("logs.txt");
-                watch.Stop();
+                
                 Log.WriteLine(DateTime.Now + " --> " + txt_ingredient_f3_1.Text + " added to ingredients list - Add a food -");
                 Log.Close();
                 txt_ingredient_f3_1.Text = "";
             }
 
 
-
-
-
-
-
-            StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + watch.ElapsedMilliseconds);
-            TIME.Close();
         }
 
         private void btn_add_food_last_f3_1_Click(object sender, EventArgs e)
@@ -825,7 +811,7 @@ namespace Foods_Interference
 
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 3-1 : " + watch.ElapsedMilliseconds);
             TIME.Close();
         }
 
@@ -887,7 +873,7 @@ namespace Foods_Interference
 
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time in FUNC 3-2 --> " + watch.ElapsedMilliseconds);
             TIME.Close();
 
         }
@@ -924,11 +910,24 @@ namespace Foods_Interference
             }
             else
             {
-                bool done = NewIngredient(txt_ingredient_name_f3_3.Text, int.Parse(txt_ingredient_price_f3_3.Text));
+                bool ok = true;
+                bool done=false;
+                try
+                {
+                     done = NewIngredient(txt_ingredient_name_f3_3.Text, int.Parse(txt_ingredient_price_f3_3.Text));
+                }
+                catch
+                {
+                    ok = false;
+                    MessageBox.Show("Please enter Ingredient Price in correct format ! ");
+                    txt_ingredient_price_f3_3.Text = "";
+
+                }
+                
                 //edit
                 //bool done = true;
                 watch.Stop();
-                if (done)
+                if (done && ok)
                 {
                     MessageBox.Show("New ingredient Added Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
@@ -937,7 +936,7 @@ namespace Foods_Interference
                     txt_ingredient_name_f3_3.Text = "";
                     txt_ingredient_price_f3_3.Text = "";
                 }
-                else
+                else if(ok)
                 {
                     MessageBox.Show("Process Failed!  The Ingredient is Already In The Database!");
                     txt_ingredient_name_f3_3.Text = "";
@@ -946,7 +945,7 @@ namespace Foods_Interference
             }
 
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time in FUNC 3-3 : --> " + watch.ElapsedMilliseconds);
             TIME.Close();
         }
 
@@ -994,7 +993,7 @@ namespace Foods_Interference
                 }
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time in FUNC 4-1 : --> " + watch.ElapsedMilliseconds);
             TIME.Close();
         }
 
@@ -1061,7 +1060,7 @@ namespace Foods_Interference
 
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 4-2 : " + watch.ElapsedMilliseconds);
             TIME.Close();
         }
 
