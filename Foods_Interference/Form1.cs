@@ -59,7 +59,7 @@ namespace Foods_Interference
             }
             return -1;
         }
-        
+
         public void Foods()
         {
             StreamReader FI_File = new StreamReader("E:\\foods.txt");
@@ -74,7 +74,7 @@ namespace Foods_Interference
                 newNode.Food = strArray[0];
                 //newNode.Ingredients = strArray.ToList().;
                 for (int i = 1; i < strArray.Length; i++)
-                { 
+                {
                     newNode.Ingredients.Add(strArray[i]);
                 }
                 newNode.number = counter;
@@ -236,7 +236,7 @@ namespace Foods_Interference
                     List<string> temp = new List<string>();
                     for (int i = 0; i < NumberOfFoods; i++)
                     {
-                        if(i+1 != NumberOfFoods)
+                        if (i + 1 != NumberOfFoods)
                         {
                             graph.Adjacents[i].Add(null);
                         }
@@ -358,74 +358,74 @@ namespace Foods_Interference
         //------------------my funcs(az inja be paiin man zadam)--------------------------
         //------------------my funcs(az inja be paiin man zadam)--------------------------
         //------------------my funcs(az inja be paiin man zadam)--------------------------
-        
-        
+
+
         public void FullClear()
         {
-        total_Price_lbl.Text = "";
-        add_btn_f1.Enabled=false;                
-        food_name_txt_f1.Enabled=false;
-        food_name_txt_f1.Text = "";
-        number_of_food_txt_f1.Enabled=false;
-        number_of_food_txt_f1.Text = "";
-        end_and_Show_Bill_btn_f1.Enabled=false;          
-        richTextBox_food_f1.Enabled=false;
-        richTextBox_food_f1.Text = "";
-        Close_bill_btn_f1.Enabled=false;               
-        btn_disable_f2.Enabled=false;               
-        richTextBox_efects_f2.Enabled=false;
-        richTextBox_efects_f2.Text = "";
-        richTextBox_foods_f2.Enabled=false;
-        richTextBox_foods_f2.Text = "";
-        btn_end_f2.Enabled=false;                    
-        btn_add_f2.Enabled=false;                    
-        food_name_txt_f2.Enabled=false;
-        food_name_txt_f2.Text = "";
-        txt_foodname2_f3_2.Enabled=false;
-        txt_foodname2_f3_2.Text = "";
-        txt_foodname1_f3_2.Enabled=false;
-        txt_foodname1_f3_2.Text = "";
-        txt_efect_f3_2.Enabled=false;
-        txt_efect_f3_2.Text = "";
-        btn_add_food_last_f3_1.Enabled=false;             
-        btn_add_ingredient_f3_1.Enabled=false;             
-        richTextBox_ingredients_f3_1.Enabled=false;
-        richTextBox_ingredients_f3_1.Text = "";
-        txt_ingredient_f3_1.Enabled=false;
-        txt_ingredient_f3_1.Text = "";
-        txt_foodname_f3_1.Enabled=false;
-        txt_foodname_f3_1.Text = "";
-        btn_add_ingredient_last_f3_3.Enabled=false;       
-        txt_ingredient_price_f3_3.Enabled=false;
-        txt_ingredient_price_f3_3.Text = "";
-        txt_ingredient_name_f3_3.Enabled=false;
-        txt_ingredient_name_f3_3.Text = "";
-        btn_add_efect_last_f3_2.Enabled=false;             
-        btn_remove_just_efect_last_f4_2.Enabled=false;   
-        txt_food_1_name_f4_2.Enabled=false;
-        txt_food_1_name_f4_2.Text = "";
-        txt_food_2_name_f4_2.Enabled=false;
-        txt_food_2_name_f4_2.Text = "";
-        btn_remove_food_last_f4_1.Enabled=false;        
-        txt_food_name_f4_1.Enabled=false;
-        txt_food_name_f4_1.Text = "";
-        richTextBox_total_price_f1.Enabled=false;
-        richTextBox_total_price_f1.Text = "";
-        richTextBox_price_f1.Enabled=false;
-        richTextBox_price_f1.Text = "";
-        richTextBox_number_f1.Enabled = false;
-        richTextBox_number_f1.Text = "";
-        total_Price_lbl.Visible = false;
-        lbl_price_header_f1.Visible = false;
-        total = 0;
-        foods_for_efect.Clear();
-        ingredientslist_f3_1.Clear();
+            total_Price_lbl.Text = "";
+            add_btn_f1.Enabled = false;
+            food_name_txt_f1.Enabled = false;
+            food_name_txt_f1.Text = "";
+            number_of_food_txt_f1.Enabled = false;
+            number_of_food_txt_f1.Text = "";
+            end_and_Show_Bill_btn_f1.Enabled = false;
+            richTextBox_food_f1.Enabled = false;
+            richTextBox_food_f1.Text = "";
+            Close_bill_btn_f1.Enabled = false;
+            btn_disable_f2.Enabled = false;
+            richTextBox_efects_f2.Enabled = false;
+            richTextBox_efects_f2.Text = "";
+            richTextBox_foods_f2.Enabled = false;
+            richTextBox_foods_f2.Text = "";
+            btn_end_f2.Enabled = false;
+            btn_add_f2.Enabled = false;
+            food_name_txt_f2.Enabled = false;
+            food_name_txt_f2.Text = "";
+            txt_foodname2_f3_2.Enabled = false;
+            txt_foodname2_f3_2.Text = "";
+            txt_foodname1_f3_2.Enabled = false;
+            txt_foodname1_f3_2.Text = "";
+            txt_efect_f3_2.Enabled = false;
+            txt_efect_f3_2.Text = "";
+            btn_add_food_last_f3_1.Enabled = false;
+            btn_add_ingredient_f3_1.Enabled = false;
+            richTextBox_ingredients_f3_1.Enabled = false;
+            richTextBox_ingredients_f3_1.Text = "";
+            txt_ingredient_f3_1.Enabled = false;
+            txt_ingredient_f3_1.Text = "";
+            txt_foodname_f3_1.Enabled = false;
+            txt_foodname_f3_1.Text = "";
+            btn_add_ingredient_last_f3_3.Enabled = false;
+            txt_ingredient_price_f3_3.Enabled = false;
+            txt_ingredient_price_f3_3.Text = "";
+            txt_ingredient_name_f3_3.Enabled = false;
+            txt_ingredient_name_f3_3.Text = "";
+            btn_add_efect_last_f3_2.Enabled = false;
+            btn_remove_just_efect_last_f4_2.Enabled = false;
+            txt_food_1_name_f4_2.Enabled = false;
+            txt_food_1_name_f4_2.Text = "";
+            txt_food_2_name_f4_2.Enabled = false;
+            txt_food_2_name_f4_2.Text = "";
+            btn_remove_food_last_f4_1.Enabled = false;
+            txt_food_name_f4_1.Enabled = false;
+            txt_food_name_f4_1.Text = "";
+            richTextBox_total_price_f1.Enabled = false;
+            richTextBox_total_price_f1.Text = "";
+            richTextBox_price_f1.Enabled = false;
+            richTextBox_price_f1.Text = "";
+            richTextBox_number_f1.Enabled = false;
+            richTextBox_number_f1.Text = "";
+            total_Price_lbl.Visible = false;
+            lbl_price_header_f1.Visible = false;
+            total = 0;
+            foods_for_efect.Clear();
+            ingredientslist_f3_1.Clear();
         }
 
         private void calculateTheBill_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter Log = File.AppendText("logs.txt");
-            Log.WriteLine(DateTime.Now+" --> "+"calculateTheBill_ToolStripMenuItem_Click");
+            Log.WriteLine(DateTime.Now + " --> " + "calculateTheBill_ToolStripMenuItem_Click");
             Log.Close();
 
 
@@ -446,7 +446,7 @@ namespace Foods_Interference
         private void foodEfectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter Log = File.AppendText("logs.txt");
-            Log.WriteLine(DateTime.Now+" --> "+"foodEfectToolStripMenuItem_Click");
+            Log.WriteLine(DateTime.Now + " --> " + "foodEfectToolStripMenuItem_Click");
             Log.Close();
 
             FullClear();
@@ -461,7 +461,7 @@ namespace Foods_Interference
         private void addFoodToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter Log = File.AppendText("logs.txt");
-            Log.WriteLine(DateTime.Now+" --> "+"addFoodToolStripMenuItem_Click");
+            Log.WriteLine(DateTime.Now + " --> " + "addFoodToolStripMenuItem_Click");
             Log.Close();
 
             FullClear();
@@ -470,13 +470,13 @@ namespace Foods_Interference
             richTextBox_ingredients_f3_1.Enabled = true;
             txt_foodname_f3_1.Enabled = true;
             txt_ingredient_f3_1.Enabled = true;
-            
+
         }
 
         private void addEfectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter Log = File.AppendText("logs.txt");
-            Log.WriteLine(DateTime.Now+" --> "+"addEfectToolStripMenuItem_Click");
+            Log.WriteLine(DateTime.Now + " --> " + "addEfectToolStripMenuItem_Click");
             Log.Close();
 
             FullClear();
@@ -489,7 +489,7 @@ namespace Foods_Interference
         private void addIngredientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter Log = File.AppendText("logs.txt");
-            Log.WriteLine(DateTime.Now+" --> "+"addIngredientToolStripMenuItem_Click");
+            Log.WriteLine(DateTime.Now + " --> " + "addIngredientToolStripMenuItem_Click");
             Log.Close();
 
             FullClear();
@@ -501,7 +501,7 @@ namespace Foods_Interference
         private void removeFoodOrEfectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter Log = File.AppendText("logs.txt");
-            Log.WriteLine(DateTime.Now+" --> "+"removeFoodOrEffectToolStripMenuItem_Click");
+            Log.WriteLine(DateTime.Now + " --> " + "removeFoodOrEffectToolStripMenuItem_Click");
             Log.Close();
 
             FullClear();
@@ -512,7 +512,7 @@ namespace Foods_Interference
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter Log = File.AppendText("logs.txt");
-            Log.WriteLine(DateTime.Now+" --> "+"removeToolStripMenuItem_Click");
+            Log.WriteLine(DateTime.Now + " --> " + "removeToolStripMenuItem_Click");
             Log.Close();
 
             FullClear();
@@ -539,14 +539,14 @@ namespace Foods_Interference
         {
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            
 
-            if(food_name_txt_f1.Text=="")
+
+            if (food_name_txt_f1.Text == "")
             {
                 MessageBox.Show("Pleas Enter A Food Name!");
                 watch.Stop();
             }
-            else if(number_of_food_txt_f1.Text=="")
+            else if (number_of_food_txt_f1.Text == "")
             {
                 MessageBox.Show("Pleas Enter The Quantity!");
                 watch.Stop();
@@ -555,16 +555,16 @@ namespace Foods_Interference
             {
                 int number = 0;
                 bool ok = true;
-                int food_total=0;
-                string food_name=food_name_txt_f1.Text;
+                int food_total = 0;
+                string food_name = food_name_txt_f1.Text;
 
 
 
-                int price= GetBill(food_name);
+                int price = GetBill(food_name);
                 //edit
                 //int price = 200;
                 watch.Stop();
-                food_name_txt_f1.Text="";
+                food_name_txt_f1.Text = "";
                 try
                 {
                     number = int.Parse(number_of_food_txt_f1.Text);
@@ -574,7 +574,7 @@ namespace Foods_Interference
                 {
                     number_of_food_txt_f1.Text = "";
                     ok = false;
-                    
+
                     MessageBox.Show("Please Enter The Quantity!\nHint: Use <Integers> Dude !");
                 }
 
@@ -593,18 +593,18 @@ namespace Foods_Interference
                     Log.Close();
 
                 }
-                else if(ok)
+                else if (ok)
                 {
-                    MessageBox.Show("Food "+food_name+" is not in the database!");
+                    MessageBox.Show("Food " + food_name + " is not in the database!");
                 }
-               
+
 
 
             }
 
             watch.Stop();
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + "process time --> " + (watch.ElapsedMilliseconds)*1000);
+            TIME.WriteLine(DateTime.Now + "process time --> " + (watch.ElapsedMilliseconds) * 1000);
             TIME.Close();
         }
 
@@ -651,7 +651,7 @@ namespace Foods_Interference
 
 
 
-        List<string> foods_for_efect=new List<string>();
+        List<string> foods_for_efect = new List<string>();
         private void btn_add_f2_Click(object sender, EventArgs e)
         {
             var watch = new System.Diagnostics.Stopwatch();
@@ -663,16 +663,16 @@ namespace Foods_Interference
             }
             else
             {
-                string food_name=food_name_txt_f2.Text;
+                string food_name = food_name_txt_f2.Text;
                 food_name_txt_f2.Text = "";
                 int food = FindIndex(food_name);
                 //edit
                 //int food = 2;
-                if (food!=-1)
+                if (food != -1)
                 {
                     richTextBox_foods_f2.Text += food_name + "\n";
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + "food "+food_name+" added for check effects.");
+                    Log.WriteLine(DateTime.Now + " --> " + "food " + food_name + " added for check effects.");
                     Log.Close();
                     if (foods_for_efect.Count > 0)
                     {
@@ -682,7 +682,7 @@ namespace Foods_Interference
                             //edit
                             //string efect = "Bad";
                             richTextBox_efects_f2.Text += food_name + " has " + efect + " effect with " + fd + "\n";
-                            
+
                         }
 
                     }
@@ -691,7 +691,7 @@ namespace Foods_Interference
                     Log2.Close();
                     foods_for_efect.Add(food_name);
                     watch.Stop();
-                    
+
                 }
                 else
                 {
@@ -760,7 +760,7 @@ namespace Foods_Interference
             {
                 ingredientslist_f3_1.Add(txt_ingredient_f3_1.Text);
                 richTextBox_ingredients_f3_1.Text += txt_ingredient_f3_1.Text + "\n";
-                
+
                 StreamWriter Log = File.AppendText("logs.txt");
                 watch.Stop();
                 Log.WriteLine(DateTime.Now + " --> " + txt_ingredient_f3_1.Text + " added to ingredients list - Add a food -");
@@ -792,7 +792,7 @@ namespace Foods_Interference
             }
             else
             {
-                
+
                 int pos = NewFood(txt_foodname_f3_1.Text, ingredientslist_f3_1);
                 //edit
                 //int pos = 0;
@@ -801,10 +801,10 @@ namespace Foods_Interference
                 {
                     MessageBox.Show("Food Added Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1+" food added to foods!");
+                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1 + " food added to foods!");
                     Log.Close();
                 }
-                if(pos == -1)
+                if (pos == -1)
                 {
                     MessageBox.Show("The Food is Already in The Database!");
                     StreamWriter Log = File.AppendText("logs.txt");
@@ -846,7 +846,7 @@ namespace Foods_Interference
             watch.Start();
 
 
-            if (txt_foodname1_f3_2.Text=="")
+            if (txt_foodname1_f3_2.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Please Enter Food1 Name !");
@@ -856,18 +856,18 @@ namespace Foods_Interference
                 watch.Stop();
                 MessageBox.Show("Please enter Food2 Name !");
             }
-            else if(txt_efect_f3_2.Text=="")
+            else if (txt_efect_f3_2.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Please Enter An Effect !");
             }
             else
             {
-                bool done=NewEffect(txt_foodname1_f3_2.Text,txt_foodname2_f3_2.Text,txt_efect_f3_2.Text);
+                bool done = NewEffect(txt_foodname1_f3_2.Text, txt_foodname2_f3_2.Text, txt_efect_f3_2.Text);
                 //edit
                 //bool done = true;
                 watch.Stop();
-                if(!done)
+                if (!done)
                 {
                     txt_foodname1_f3_2.Text = "";
                     txt_foodname2_f3_2.Text = "";
@@ -912,12 +912,12 @@ namespace Foods_Interference
             watch.Start();
 
 
-            if (txt_ingredient_name_f3_3.Text=="")
+            if (txt_ingredient_name_f3_3.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Please Enter Ingredient Name !");
             }
-            else if (txt_ingredient_price_f3_3.Text=="")
+            else if (txt_ingredient_price_f3_3.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Please Enter Ingredient Price !");
@@ -932,7 +932,7 @@ namespace Foods_Interference
                 {
                     MessageBox.Show("New ingredient Added Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + "ingredient " + txt_ingredient_name_f3_3.Text + " wtih price " + txt_ingredient_price_f3_3+" aded to data base.");
+                    Log.WriteLine(DateTime.Now + " --> " + "ingredient " + txt_ingredient_name_f3_3.Text + " wtih price " + txt_ingredient_price_f3_3 + " aded to data base.");
                     Log.Close();
                     txt_ingredient_name_f3_3.Text = "";
                     txt_ingredient_price_f3_3.Text = "";
@@ -983,7 +983,7 @@ namespace Foods_Interference
                 {
                     MessageBox.Show("Food Removed Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + "Food " + txt_food_name_f4_1+" removed from database.");
+                    Log.WriteLine(DateTime.Now + " --> " + "Food " + txt_food_name_f4_1 + " removed from database.");
                     Log.Close();
                     txt_food_name_f4_1.Text = "";
                 }
@@ -1012,12 +1012,12 @@ namespace Foods_Interference
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
-            if (txt_food_1_name_f4_2.Text=="")
+            if (txt_food_1_name_f4_2.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Please Enter Food1 Name !");
             }
-            else if (txt_food_2_name_f4_2.Text=="")
+            else if (txt_food_2_name_f4_2.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Please Enter Food2 Name !");
@@ -1063,7 +1063,7 @@ namespace Foods_Interference
             StreamWriter TIME = File.AppendText("time.txt");
             TIME.WriteLine(DateTime.Now + "process time --> " + watch.ElapsedMilliseconds);
             TIME.Close();
-        }                                 
+        }
 
 
 
