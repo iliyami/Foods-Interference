@@ -93,23 +93,13 @@ namespace Foods_Interference
             {
                 Line = FFE_File.ReadLine().ToString();
                 string[] strArray = Line.Split(',');
-                int i = FindIndex(strArray[0]);
-                int j = FindIndex(strArray[1]);
-                if (i == -1 || j == -1)
-                {
-                    Console.WriteLine("Error From Indices i j - equal to -1");
-                    Close();
-                }
-                else
-                {
-                    key.key1 = strArray[0];
-                    key.key2 = strArray[1];
-                    graph.Adjacents.Add(key, strArray[2]);
-                    string temp = key.key1;
-                    key.key1 = key.key2;
-                    key.key2 = temp;
-                    graph.Adjacents.Add(key, strArray[2]);
-                }
+                key.key1 = strArray[0];
+                key.key2 = strArray[1];
+                graph.Adjacents.Add(key, strArray[2]);
+                string temp = key.key1;
+                key.key1 = key.key2;
+                key.key2 = temp;
+                graph.Adjacents.Add(key, strArray[2]);
             }
             FFE_File.Close();
         }
@@ -774,7 +764,7 @@ namespace Foods_Interference
 
             if (txt_ingredient_f3_1.Text == "")
             {
-                
+
                 MessageBox.Show("Please Enter A Ingredient !");
             }
             else
@@ -783,7 +773,7 @@ namespace Foods_Interference
                 richTextBox_ingredients_f3_1.Text += txt_ingredient_f3_1.Text + "\n";
 
                 StreamWriter Log = File.AppendText("logs.txt");
-                
+
                 Log.WriteLine(DateTime.Now + " --> " + txt_ingredient_f3_1.Text + " added to ingredients list - Add a food -");
                 Log.Close();
                 txt_ingredient_f3_1.Text = "";
@@ -939,10 +929,10 @@ namespace Foods_Interference
             else
             {
                 bool ok = true;
-                bool done=false;
+                bool done = false;
                 try
                 {
-                     done = NewIngredient(txt_ingredient_name_f3_3.Text, int.Parse(txt_ingredient_price_f3_3.Text));
+                    done = NewIngredient(txt_ingredient_name_f3_3.Text, int.Parse(txt_ingredient_price_f3_3.Text));
                 }
                 catch
                 {
@@ -951,7 +941,7 @@ namespace Foods_Interference
                     txt_ingredient_price_f3_3.Text = "";
 
                 }
-                
+
                 //edit
                 //bool done = true;
                 watch.Stop();
@@ -964,7 +954,7 @@ namespace Foods_Interference
                     txt_ingredient_name_f3_3.Text = "";
                     txt_ingredient_price_f3_3.Text = "";
                 }
-                else if(ok)
+                else if (ok)
                 {
                     MessageBox.Show("Process Failed!  The Ingredient is Already In The Database!");
                     txt_ingredient_name_f3_3.Text = "";
