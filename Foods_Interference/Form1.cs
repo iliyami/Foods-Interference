@@ -526,13 +526,13 @@ namespace Foods_Interference
 
             if (food_name_txt_f1.Text == "")
             {
-                MessageBox.Show("Pleas Enter A Food Name!");
                 watch.Stop();
+                MessageBox.Show("Pleas Enter A Food Name!");
             }
             else if (number_of_food_txt_f1.Text == "")
             {
-                MessageBox.Show("Pleas Enter The Quantity!");
                 watch.Stop();
+                MessageBox.Show("Pleas Enter The Quantity!");
             }
             else
             {
