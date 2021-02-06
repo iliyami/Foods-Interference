@@ -862,7 +862,7 @@ namespace Foods_Interference
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(761, 1300);
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(762, 831);
+            this.ClientSize = new System.Drawing.Size(762, 845);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
