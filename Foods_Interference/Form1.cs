@@ -232,7 +232,7 @@ namespace Foods_Interference
                     newNode.number = NumberOfFoods;
                     NumberOfFoods++;
                     newNode.Food = food;
-                    newNode.Ingredients = ingredients;
+                    newNode.Ingredients = ingredients.ToList();
                     List<string> temp = new List<string>();
                     for (int i = 0; i < NumberOfFoods; i++)
                     {
@@ -818,6 +818,7 @@ namespace Foods_Interference
                     Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1 + " food adding encountered an error.");
                     Log.Close();
                 }
+
                 txt_foodname_f3_1.Text = "";
                 ingredientslist_f3_1.Clear();
                 richTextBox_ingredients_f3_1.Text = "";
