@@ -53,6 +53,7 @@ namespace Foods_Interference
             this.label5 = new System.Windows.Forms.Label();
             this.total_Price_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_price_header_f1 = new System.Windows.Forms.Label();
             this.richTextBox_total_price_f1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox_price_f1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox_number_f1 = new System.Windows.Forms.RichTextBox();
@@ -101,7 +102,6 @@ namespace Foods_Interference
             this.txt_food_name_f4_1 = new System.Windows.Forms.TextBox();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lbl_price_header_f1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -159,7 +159,7 @@ namespace Foods_Interference
             this.removeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(761, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -346,6 +346,19 @@ namespace Foods_Interference
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bill";
+            // 
+            // lbl_price_header_f1
+            // 
+            this.lbl_price_header_f1.AutoSize = true;
+            this.lbl_price_header_f1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbl_price_header_f1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_price_header_f1.ForeColor = System.Drawing.Color.Red;
+            this.lbl_price_header_f1.Location = new System.Drawing.Point(284, 140);
+            this.lbl_price_header_f1.Name = "lbl_price_header_f1";
+            this.lbl_price_header_f1.Size = new System.Drawing.Size(62, 13);
+            this.lbl_price_header_f1.TabIndex = 18;
+            this.lbl_price_header_f1.Text = "Your Bill :";
+            this.lbl_price_header_f1.Visible = false;
             // 
             // richTextBox_total_price_f1
             // 
@@ -802,7 +815,7 @@ namespace Foods_Interference
             this.btn_remove_food_last_f4_1.Name = "btn_remove_food_last_f4_1";
             this.btn_remove_food_last_f4_1.Size = new System.Drawing.Size(177, 23);
             this.btn_remove_food_last_f4_1.TabIndex = 32;
-            this.btn_remove_food_last_f4_1.Text = "Remove Food and Efects";
+            this.btn_remove_food_last_f4_1.Text = "Remove Record";
             this.btn_remove_food_last_f4_1.UseVisualStyleBackColor = true;
             this.btn_remove_food_last_f4_1.Click += new System.EventHandler(this.btn_remove_food_last_f4_1_Click);
             // 
@@ -842,25 +855,14 @@ namespace Foods_Interference
             this.lineShape3.Y1 = -16;
             this.lineShape3.Y2 = 170;
             // 
-            // lbl_price_header_f1
-            // 
-            this.lbl_price_header_f1.AutoSize = true;
-            this.lbl_price_header_f1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbl_price_header_f1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_price_header_f1.ForeColor = System.Drawing.Color.Red;
-            this.lbl_price_header_f1.Location = new System.Drawing.Point(284, 140);
-            this.lbl_price_header_f1.Name = "lbl_price_header_f1";
-            this.lbl_price_header_f1.Size = new System.Drawing.Size(62, 13);
-            this.lbl_price_header_f1.TabIndex = 18;
-            this.lbl_price_header_f1.Text = "Your Bill :";
-            this.lbl_price_header_f1.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(761, 1300);
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(745, 831);
+            this.ClientSize = new System.Drawing.Size(762, 831);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
