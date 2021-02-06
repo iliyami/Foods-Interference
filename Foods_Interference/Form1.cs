@@ -543,12 +543,12 @@ namespace Foods_Interference
 
             if(food_name_txt_f1.Text=="")
             {
-                MessageBox.Show("Pleas enter food name!");
+                MessageBox.Show("Pleas Enter A Food Name!");
                 watch.Stop();
             }
             else if(number_of_food_txt_f1.Text=="")
             {
-                MessageBox.Show("Pleas enter number of foods!");
+                MessageBox.Show("Pleas Enter The Quantity!");
                 watch.Stop();
             }
             else
@@ -575,7 +575,7 @@ namespace Foods_Interference
                     number_of_food_txt_f1.Text = "";
                     ok = false;
                     
-                    MessageBox.Show("pleas enter number in correct foramt !");
+                    MessageBox.Show("Please Enter The Quantity!\nHint: Use <Integers> Dude !");
                 }
 
 
@@ -589,7 +589,7 @@ namespace Foods_Interference
                     total = food_total + total;
                     total_Price_lbl.Text = total.ToString();
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + number + " " + food_name + " Aded to bill with total price : " + food_total);
+                    Log.WriteLine(DateTime.Now + " --> " + number + " " + food_name + " Added to bill with total price : " + food_total);
                     Log.Close();
 
                 }
@@ -624,7 +624,7 @@ namespace Foods_Interference
             }
             else
             {
-                MessageBox.Show("No Food Added !");
+                MessageBox.Show("Process Failed! No Food Added!");
             }
         }
 
@@ -696,7 +696,7 @@ namespace Foods_Interference
                 else
                 {
                     watch.Stop();
-                    MessageBox.Show("Food Not Found in The DataBase !");
+                    MessageBox.Show("The Food Not Found in The DataBase !");
                 }
 
             }
@@ -754,7 +754,7 @@ namespace Foods_Interference
             if (txt_ingredient_f3_1.Text == "")
             {
                 watch.Stop();
-                MessageBox.Show("Pleas Enter Ingredient !");
+                MessageBox.Show("Please Enter A Ingredient !");
             }
             else
             {
@@ -763,7 +763,7 @@ namespace Foods_Interference
                 
                 StreamWriter Log = File.AppendText("logs.txt");
                 watch.Stop();
-                Log.WriteLine(DateTime.Now + " --> " + txt_ingredient_f3_1.Text + " added to ingredient list for Add a food");
+                Log.WriteLine(DateTime.Now + " --> " + txt_ingredient_f3_1.Text + " added to ingredients list - Add a food -");
                 Log.Close();
                 txt_ingredient_f3_1.Text = "";
             }
@@ -801,21 +801,21 @@ namespace Foods_Interference
                 {
                     MessageBox.Show("Food Added Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1+" food aded to Foods!");
+                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1+" food added to foods!");
                     Log.Close();
                 }
                 if(pos == -1)
                 {
-                    MessageBox.Show("The food is already in the database!");
+                    MessageBox.Show("The Food is Already in The Database!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1 + " food adding confront with Error.");
+                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1 + " food adding encountered an error.");
                     Log.Close();
                 }
                 if (pos == -2)
                 {
-                    MessageBox.Show("Do not have necessary ingredients!");
+                    MessageBox.Show("Do not Have Necessary Ingredients!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1 + " food adding confront with Error.");
+                    Log.WriteLine(DateTime.Now + " --> " + txt_foodname_f3_1 + " food adding encountered an error.");
                     Log.Close();
                 }
                 txt_foodname_f3_1.Text = "";
@@ -849,7 +849,7 @@ namespace Foods_Interference
             if (txt_foodname1_f3_2.Text=="")
             {
                 watch.Stop();
-                MessageBox.Show("Please enter Food1 Name !");
+                MessageBox.Show("Please Enter Food1 Name !");
             }
             else if (txt_foodname2_f3_2.Text == "")
             {
@@ -859,7 +859,7 @@ namespace Foods_Interference
             else if(txt_efect_f3_2.Text=="")
             {
                 watch.Stop();
-                MessageBox.Show("Please enter efect !");
+                MessageBox.Show("Please Enter An Effect !");
             }
             else
             {
@@ -876,9 +876,9 @@ namespace Foods_Interference
                 }
                 else
                 {
-                    MessageBox.Show("Successful!");
+                    MessageBox.Show("New Effect Added Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + txt_efect_f3_2.Text + " efect added between " + txt_foodname1_f3_2.Text + " and " + txt_foodname2_f3_2.Text);
+                    Log.WriteLine(DateTime.Now + " --> " + txt_efect_f3_2.Text + " effect added between " + txt_foodname1_f3_2.Text + " and " + txt_foodname2_f3_2.Text);
                     Log.Close();
                     txt_foodname1_f3_2.Text = "";
                     txt_foodname2_f3_2.Text = "";
@@ -930,7 +930,7 @@ namespace Foods_Interference
                 watch.Stop();
                 if (done)
                 {
-                    MessageBox.Show("Successful!");
+                    MessageBox.Show("New ingredient Added Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
                     Log.WriteLine(DateTime.Now + " --> " + "ingredient " + txt_ingredient_name_f3_3.Text + " wtih price " + txt_ingredient_price_f3_3+" aded to data base.");
                     Log.Close();
@@ -971,7 +971,7 @@ namespace Foods_Interference
             if (txt_food_name_f4_1.Text == "")
             {
                 watch.Stop();
-                MessageBox.Show("Please Enter Food Name !");
+                MessageBox.Show("Please Enter A Food Name !");
             }
             else
             {
@@ -981,7 +981,7 @@ namespace Foods_Interference
                 watch.Stop();
                 if (done)
                 {
-                    MessageBox.Show("Successful!");
+                    MessageBox.Show("Food Removed Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
                     Log.WriteLine(DateTime.Now + " --> " + "Food " + txt_food_name_f4_1+" removed from database.");
                     Log.Close();
@@ -1015,12 +1015,12 @@ namespace Foods_Interference
             if (txt_food_1_name_f4_2.Text=="")
             {
                 watch.Stop();
-                MessageBox.Show("Please enter Food1 Name !");
+                MessageBox.Show("Please Enter Food1 Name !");
             }
             else if (txt_food_2_name_f4_2.Text=="")
             {
                 watch.Stop();
-                MessageBox.Show("Please enter Food2 Name !");
+                MessageBox.Show("Please Enter Food2 Name !");
             }
             else
             {
@@ -1030,18 +1030,18 @@ namespace Foods_Interference
                 watch.Stop();
                 if (pos == 0)
                 {
-                    MessageBox.Show("Successful!");
+                    MessageBox.Show("The Effect Removed Successfully!");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + "Food efect between " + txt_food_1_name_f4_2.Text + " and " + txt_food_2_name_f4_2.Text + " removed from database.");
+                    Log.WriteLine(DateTime.Now + " --> " + "Food effect between " + txt_food_1_name_f4_2.Text + " and " + txt_food_2_name_f4_2.Text + " removed from the database.");
                     Log.Close();
                     txt_food_1_name_f4_2.Text = "";
                     txt_food_2_name_f4_2.Text = "";
                 }
                 else if (pos == -1)
                 {
-                    MessageBox.Show("atleast one of foods is not in the database!");
+                    MessageBox.Show("Process Failed! Food Not Found In the Database");
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + "removing Food efect between " + txt_food_1_name_f4_2.Text + " and " + txt_food_2_name_f4_2.Text + "confront with ERROR.");
+                    Log.WriteLine(DateTime.Now + " --> " + "removing Food effect between " + txt_food_1_name_f4_2.Text + " and " + txt_food_2_name_f4_2.Text + "encountered an error.");
                     Log.Close();
                     txt_food_1_name_f4_2.Text = "";
                     txt_food_2_name_f4_2.Text = "";
@@ -1051,7 +1051,7 @@ namespace Foods_Interference
                 {
                     MessageBox.Show("There is no food effect for " + txt_food_1_name_f4_2.Text + " and " + txt_food_2_name_f4_2.Text);
                     StreamWriter Log = File.AppendText("logs.txt");
-                    Log.WriteLine(DateTime.Now + " --> " + "removing Food efect between " + txt_food_1_name_f4_2.Text + " and " + txt_food_2_name_f4_2.Text + "confront with ERROR.");
+                    Log.WriteLine(DateTime.Now + " --> " + "removing Food effect between " + txt_food_1_name_f4_2.Text + " and " + txt_food_2_name_f4_2.Text + "encountered an error.");
                     Log.Close();
                     txt_food_1_name_f4_2.Text = "";
                     txt_food_2_name_f4_2.Text = "";
