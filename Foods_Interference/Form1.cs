@@ -135,24 +135,6 @@ namespace Foods_Interference
 
                 /*Handling Food-Interference File*/
 
-
-
-                //string[] arr = new string[NumberOfFoods];
-                //for (int i = 0; i < NumberOfFoods; i++)
-                //{
-                //    List<string> temp = new List<string>(16000000);
-                //    temp = arr.ToList();
-                //    graph.Adjacents.Add(temp);
-                //}
-                //for (int i = 0; i < NumberOfFoods; i++)
-                //{
-                //    graph.Adjacents.Add(null);
-                //    for (int j = 0; j < NumberOfFoods; j++)
-                //    {
-
-                //    }
-                //}
-
                 Effects();
 
                 /*Handling Ingredient-Price File*/
@@ -244,15 +226,7 @@ namespace Foods_Interference
                     newNode.Food = food;
                     newNode.Ingredients = ingredients.ToList();
                     List<string> temp = new List<string>();
-                    //for (int i = 0; i < NumberOfFoods; i++)
-                    //{
-                    //    if (i + 1 != NumberOfFoods)
-                    //    {
-                    //        graph.Adjacents[i].Add(null);
-                    //    }
-                    //    temp.Add(null);
-                    //}
-                    //graph.Adjacents.Add(temp);
+
                     graph.V.Add(newNode);
                     //Successful
                     return 0;
@@ -309,17 +283,12 @@ namespace Foods_Interference
             int i = FindIndex(food);
             if (i != -1)
             {
-                //graph.V[i].Ingredients.Clear();
-                //graph.V[i] = null;
+
                 graph.V.RemoveAt(i);
 
                 for (int j = 0; j < graph.V.Count(); j++)
                 {
-                    //if (graph.Adjacents[i][j] != null)
-                    //{
-                    //    graph.Adjacents[i][j] = null;
-                    //    graph.Adjacents[j][i] = null;
-                    //}
+
                     key.key2 = graph.V[j].Food;
                     if (graph.Adjacents.ContainsKey(key) == true)
                     {
@@ -574,13 +543,13 @@ namespace Foods_Interference
             {
                 watch.Stop();
                 MessageBox.Show("Pleas Enter A Food Name!");
-                
+
             }
             else if (number_of_food_txt_f1.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Pleas Enter The Quantity!");
-                
+
             }
             else
             {
