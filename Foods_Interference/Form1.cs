@@ -124,15 +124,27 @@ namespace Foods_Interference
             }
             else
             {
+                var watch = new System.Diagnostics.Stopwatch();
+                watch.Start();
+                
+
+                
                 /*Handling Food-Ingredients File*/
                 Foods();
                 NumberOfFoods = graph.V.Count();
 
                 /*Handling Food-Interference File*/
+
                 Effects();
 
                 /*Handling Ingredient-Price File*/
                 Ingredients();
+
+                watch.Stop();
+
+                StreamWriter TIME = File.AppendText("time.txt");
+                TIME.WriteLine(DateTime.Now + "Adding files Time --> " + watch.ElapsedMilliseconds * 1000);
+                TIME.Close();
             }
         }
 
@@ -214,6 +226,7 @@ namespace Foods_Interference
                     newNode.Food = food;
                     newNode.Ingredients = ingredients.ToList();
                     List<string> temp = new List<string>();
+
                     graph.V.Add(newNode);
                     //Successful
                     return 0;
@@ -270,10 +283,12 @@ namespace Foods_Interference
             int i = FindIndex(food);
             if (i != -1)
             {
+
                 graph.V.RemoveAt(i);
 
                 for (int j = 0; j < graph.V.Count(); j++)
                 {
+
                     key.key2 = graph.V[j].Food;
                     if (graph.Adjacents.ContainsKey(key) == true)
                     {
@@ -528,11 +543,13 @@ namespace Foods_Interference
             {
                 watch.Stop();
                 MessageBox.Show("Pleas Enter A Food Name!");
+
             }
             else if (number_of_food_txt_f1.Text == "")
             {
                 watch.Stop();
                 MessageBox.Show("Pleas Enter The Quantity!");
+
             }
             else
             {
@@ -795,7 +812,7 @@ namespace Foods_Interference
 
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 3-1 : " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 3-1 : " + watch.ElapsedMilliseconds );
             TIME.Close();
         }
 
@@ -857,7 +874,7 @@ namespace Foods_Interference
 
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + " process time in FUNC 3-2 --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time in FUNC 3-2 --> " + watch.ElapsedMilliseconds );
             TIME.Close();
 
         }
@@ -929,7 +946,7 @@ namespace Foods_Interference
             }
 
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + " process time in FUNC 3-3 : --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time in FUNC 3-3 : --> " + watch.ElapsedMilliseconds );
             TIME.Close();
         }
 
@@ -977,7 +994,7 @@ namespace Foods_Interference
                 }
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + " process time in FUNC 4-1 : --> " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time in FUNC 4-1 : --> " + watch.ElapsedMilliseconds );
             TIME.Close();
         }
 
@@ -1044,7 +1061,7 @@ namespace Foods_Interference
 
             }
             StreamWriter TIME = File.AppendText("time.txt");
-            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 4-2 : " + watch.ElapsedMilliseconds);
+            TIME.WriteLine(DateTime.Now + " process time --> in FUNC 4-2 : " + watch.ElapsedMilliseconds );
             TIME.Close();
         }
 
